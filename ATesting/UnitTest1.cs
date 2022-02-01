@@ -1,3 +1,4 @@
+using ATesting.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -25,10 +26,11 @@ namespace ATesting
 
         public void LogIn()
         {
-            _driver.FindElement(By.LinkText("Login")).Click();
-            _driver.FindElement(By.Id("UserName")).SendKeys("admin");
-            _driver.FindElement(By.Id("Password")).SendKeys("password");
-            _driver.FindElement(By.CssSelector("input.btn")).Submit();
+            LoginPage page = new LoginPage(_driver);
+            page.lnkLogin.Click();
+            page.txtUserName.SendKeys("admin");
+            page.txtPassword.SendKeys("password");
+            page.btnLogin.Submit();
 
         }
     }
