@@ -3,7 +3,7 @@ using SeleniumExtras.PageObjects;
 
 namespace ATesting.Pages
 {
-    internal class LoginPage
+    public class LoginPage
     {
         public LoginPage(IWebDriver driver)
         {
