@@ -6,7 +6,7 @@ using ATFramework.Base;
 
 namespace ATesting
 {
-    public class Tests
+    public class Tests : Base
     {
         private IWebDriver _driver;
         string url = "http://eaapp.somee.com/";
@@ -21,12 +21,12 @@ namespace ATesting
         {
             DriverContext.Driver = new FirefoxDriver();
             DriverContext.Driver.Navigate().GoToUrl(url);
-            LoginPage page = new LoginPage();
-            page.ClickLoginLink()
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage.As<LoginPage>()
+                .ClickLoginLink()
                 .LogIn("admin", "password")
                 .ClickEmployeeList()
                 .ClickButtonCreateNew();
-            Assert.Pass();
         }
     }
 }

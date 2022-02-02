@@ -7,19 +7,19 @@ namespace ATesting.Pages
     public class LoginPage : BasePage
     {
         [FindsBy(How = How.Id, Using = "loginLink")]
-        public IWebElement lnkLogin { get; set; }
+        IWebElement lnkLogin { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Employee List")]
-        public IWebElement lnkEmployeeList { get; set; }
+        IWebElement lnkEmployeeList { get; set; }
 
         [FindsBy(How = How.Id, Using = "UserName")]
-        public IWebElement txtUserName { get; set; }
+        IWebElement txtUserName { get; set; }
 
         [FindsBy(How = How.Id, Using = "Password")]
-        public IWebElement txtPassword { get; set; }
+        IWebElement txtPassword { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "input.btn")]
-        public IWebElement btnLogin { get; set; }
+        IWebElement btnLogin { get; set; }
 
         public LoginPage LogIn(string username, string password)
         {
