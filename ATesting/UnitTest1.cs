@@ -21,18 +21,12 @@ namespace ATesting
         {
             DriverContext.Driver = new FirefoxDriver();
             DriverContext.Driver.Navigate().GoToUrl(url);
-            LogIn();
-            Assert.Pass();
-        }
-
-        public void LogIn()
-        {
             LoginPage page = new LoginPage();
-            page.lnkLogin.Click();
-            page.txtUserName.SendKeys("admin");
-            page.txtPassword.SendKeys("password");
-            page.btnLogin.Submit();
-
+            page.ClickLoginLink()
+                .LogIn("admin", "password")
+                .ClickEmployeeList()
+                .ClickButtonCreateNew();
+            Assert.Pass();
         }
     }
 }
