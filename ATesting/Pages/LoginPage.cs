@@ -6,10 +6,6 @@ namespace ATesting.Pages
 {
     public class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver) : base(driver)
-        {
-        }
-
         [FindsBy(How = How.Id, Using = "loginLink")]
         public IWebElement lnkLogin { get; set; }
 
@@ -21,7 +17,5 @@ namespace ATesting.Pages
 
         [FindsBy(How = How.CssSelector, Using = "input.btn")]
         public IWebElement btnLogin { get; set; }
-
-
     }
 }

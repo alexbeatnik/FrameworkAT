@@ -2,6 +2,7 @@ using ATesting.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using ATFramework.Base;
 
 namespace ATesting
 {
@@ -18,15 +19,15 @@ namespace ATesting
         [Test]
         public void Test1()
         {
-            _driver = new FirefoxDriver();
-            _driver.Navigate().GoToUrl(url);
+            DriverContext.Driver = new FirefoxDriver();
+            DriverContext.Driver.Navigate().GoToUrl(url);
             LogIn();
             Assert.Pass();
         }
 
         public void LogIn()
         {
-            LoginPage page = new LoginPage(_driver);
+            LoginPage page = new LoginPage();
             page.lnkLogin.Click();
             page.txtUserName.SendKeys("admin");
             page.txtPassword.SendKeys("password");
