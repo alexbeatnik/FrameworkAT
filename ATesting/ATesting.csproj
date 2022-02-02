@@ -17,4 +17,8 @@
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ATFramework\ATFramework.csproj" />
+  </ItemGroup>
+
 </Project>
