@@ -1,14 +1,13 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SeleniumExtras.PageObjects;
 
 namespace ATFramework.Base
 {
     public abstract class BasePage
     {
-        public LoginPage(IWebDriver driver) : base(driver)
+        public BasePage(IWebDriver driver)
         {
+            PageFactory.InitElements(driver, this);
         }
     }
 }

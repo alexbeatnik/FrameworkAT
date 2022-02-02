@@ -1,13 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿using ATFramework.Base;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace ATesting.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "loginLink")]
