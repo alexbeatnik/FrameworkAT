@@ -4,7 +4,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using ATFramework.Base;
-
+using ATFramework.Helpers;
 
 namespace ATesting
 {
@@ -38,7 +38,9 @@ namespace ATesting
         [Test]
         public void Test1()
         {
+            LogHelpers.CreateLogFile();
             OpenBrowser(BrowserType.Firefox);
+            LogHelpers.Write("Open the browser!!!");
             DriverContext.Browser.GoToUrl("http://eaapp.somee.com/");
 
             CurrentPage = GetInstance<LoginPage>();

@@ -1,10 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace ATFramework.Helpers
 {
-    internal class LogHelpers
+    public class LogHelpers
     {
+        private static string _logFileName = String.Format("{0:yyyymmddhhmmss}", DateTime.Now);
+        private static StreamWriter _streamw = null;
+        public static void CreateLogFile()
+        {
+            string dir = @"C:\FrameworkAT\";
+            if (Directory.Exists(dir))
+            {
+                _streamw = File.AppendText(dir + _logFileName + ".log");
+            }
+            else
+            {
+                Directory.CreateDirectory(dir);
+                _streamw = File.AppendText(dir + _logFileName + ".log");
+            }
+        }
+
+        public static void Write(string logMassage)
+        {
+            _streamw.Write($"{DateTime.Now.ToLongTimeString()}, {DateTime.Now.ToLongDateString()}");
+            _streamw.Write($" {logMassage}"); 
+            _streamw.Flush();
+        }
     }
 }

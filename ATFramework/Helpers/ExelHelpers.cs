@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ATFramework.Helpers
+﻿namespace ATFramework.Helpers
 {
-    internal class ExelHelpers
+    public class ExelHelpers
     {
+
     }
 }
