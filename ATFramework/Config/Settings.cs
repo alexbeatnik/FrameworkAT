@@ -1,10 +1,19 @@
-﻿using System;
+﻿using ATFramework.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ATFramework.Config
 {
-    internal class Settings
+    public class Settings
     {
+        public static string TestType { get; set; }
+        public static string AUT { get; set;}
+        public static string BuildName { get; set; }
+        public static BrowserType BrowserType { get; set; }
+        public static string IsLog { get; set; }
+        public static string LogPath { get; set; }
+
+
     }
 }

@@ -11,7 +11,6 @@ namespace ATesting
 {
     public class Tests : Base
     {
-        string url = ConfigReader.InitializeTest();
         public void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
         {
             switch (browserType)
@@ -39,10 +38,11 @@ namespace ATesting
         [Test]
         public void Test1()
         {
+            ConfigReader.SetFrameworksSettings();
             LogHelpers.CreateLogFile();
             OpenBrowser(BrowserType.Firefox);
             LogHelpers.Write("Open the browser!!!");
-            DriverContext.Browser.GoToUrl(url);
+            DriverContext.Browser.GoToUrl(Settings.AUT);
             LogHelpers.Write("Navigated to the page");
 
             CurrentPage = GetInstance<LoginPage>();
