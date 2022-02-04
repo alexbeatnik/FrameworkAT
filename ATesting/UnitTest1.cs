@@ -5,12 +5,13 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using ATFramework.Base;
 using ATFramework.Helpers;
+using ATFramework.Config;
 
 namespace ATesting
 {
     public class Tests : Base
     {
-        string url = "http://eaapp.somee.com/";
+        string url = ConfigReader.InitializeTest();
         public void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
         {
             switch (browserType)
@@ -41,7 +42,7 @@ namespace ATesting
             LogHelpers.CreateLogFile();
             OpenBrowser(BrowserType.Firefox);
             LogHelpers.Write("Open the browser!!!");
-            DriverContext.Browser.GoToUrl("http://eaapp.somee.com/");
+            DriverContext.Browser.GoToUrl(url);
             LogHelpers.Write("Navigated to the page");
 
             CurrentPage = GetInstance<LoginPage>();
