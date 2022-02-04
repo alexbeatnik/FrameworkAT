@@ -24,7 +24,7 @@ namespace ATFramework.Helpers
         public static void Write(string logMassage)
         {
             _streamw.Write($"{DateTime.Now.ToLongTimeString()}, {DateTime.Now.ToLongDateString()}");
-            _streamw.Write($" {logMassage}"); 
+            _streamw.Write($" {logMassage}\n"); 
             _streamw.Flush();
         }
     }

@@ -42,6 +42,7 @@ namespace ATesting
             OpenBrowser(BrowserType.Firefox);
             LogHelpers.Write("Open the browser!!!");
             DriverContext.Browser.GoToUrl("http://eaapp.somee.com/");
+            LogHelpers.Write("Navigated to the page");
 
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>()
