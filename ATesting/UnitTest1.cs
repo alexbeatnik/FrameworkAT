@@ -48,6 +48,7 @@ namespace ATesting
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>()
                 .ClickLoginLink()
+                .CheckIfLoginExists()
                 .LogIn("admin", "password")
                 .ClickEmployeeList()
                 .ClickButtonCreateNew();

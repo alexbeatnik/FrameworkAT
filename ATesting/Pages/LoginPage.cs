@@ -1,6 +1,7 @@
 ﻿using ATFramework.Base;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using ATFramework.Extentions;
 
 namespace ATesting.Pages
 {
@@ -39,6 +40,11 @@ namespace ATesting.Pages
         {
             lnkEmployeeList.Click();
             return new EmployeePage();
+        }
+        public LoginPage CheckIfLoginExists()
+        {
+            txtUserName.AssertElementPresent();
+            return this;
         }
     }
 }
