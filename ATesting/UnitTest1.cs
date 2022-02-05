@@ -6,6 +6,7 @@ using OpenQA.Selenium.Edge;
 using ATFramework.Base;
 using ATFramework.Helpers;
 using ATFramework.Config;
+using System;
 
 namespace ATesting
 {
@@ -38,6 +39,8 @@ namespace ATesting
         [Test]
         public void Test1()
         {
+            string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
+            ExelHelpers.PopulateCollection(filename);
             ConfigReader.SetFrameworksSettings();
             LogHelpers.CreateLogFile();
             OpenBrowser(BrowserType.Firefox);
@@ -49,7 +52,7 @@ namespace ATesting
             CurrentPage.As<LoginPage>()
                 .ClickLoginLink()
                 .CheckIfLoginExists()
-                .LogIn("admin", "password")
+                .LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"))
                 .ClickEmployeeList()
                 .ClickButtonCreateNew();
         }
