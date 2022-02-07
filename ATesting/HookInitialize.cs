@@ -1,18 +1,21 @@
 ﻿using ATFramework.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
 namespace ATesting
 {
+    [Binding]
     public class HookInitialize : TestInitializeHooks
     {
         public HookInitialize() : base(BrowserType.Firefox)
         {
             InitializeSettings();
             NavigateSite();
+        }
+
+        [BeforeFeature]
+        public static void TestStart()
+        {
+            HookInitialize init = new HookInitialize();
         }
     }
 }

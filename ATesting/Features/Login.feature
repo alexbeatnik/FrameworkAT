@@ -5,6 +5,7 @@
 @smoke @positive
 Scenario: Login to application
 	Given I navigate to aplication
+	And I check app opened
 	And I click the login link
 	And I enter username and password
 		| UserName | Password |

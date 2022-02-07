@@ -108,21 +108,24 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I navigate to aplication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
+ testRunner.And("I check app opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 9
  testRunner.And("I click the login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "UserName",
                             "Password"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "admin",
                             "password"});
-#line 9
- testRunner.And("I enter username and password", ((string)(null)), table1, "And ");
-#line hidden
-#line 12
- testRunner.And("I click login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I enter username and password", ((string)(null)), table2, "And ");
 #line hidden
 #line 13
+ testRunner.And("I click login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
  testRunner.Then("I should see username with hello", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -13,7 +13,7 @@ namespace ATesting.Pages
         [FindsBy(How = How.LinkText, Using = "Log off")]
         IWebElement lnkLogOff { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//a[@title='Manage'")]
+        [FindsBy(How = How.XPath, Using = "//a[@title='Manage]'")]
         IWebElement lnkLoggedUser { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Employee List")]
@@ -37,6 +37,12 @@ namespace ATesting.Pages
         {
             lnkEmployeeList.Click();
             return GetInstance<EmployeeListPage>();
+        }
+
+        public HomePage CheckIfLoginExists()
+        {
+            lnkLogIn.AssertElementPresent();
+            return this;
         }
     }
 }
