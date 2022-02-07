@@ -53,7 +53,7 @@ namespace ATesting
             CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
 
 
-            var table = CurrentPage.As<EmployeePage>().GetEmployeeList();
+            var table = CurrentPage.As<EmployeeListPage>().GetEmployeeList();
             HtmlTableHelper.ReadTable(table);
             HtmlTableHelper.PerformActionOnCell("5", "Name", "Ramesh", "Edit");
         }

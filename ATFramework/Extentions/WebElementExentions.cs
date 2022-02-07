@@ -32,6 +32,11 @@ namespace ATFramework.Extentions
             SelectElement ddl = new SelectElement(element);
         }
 
+        public static string GetLinkText(this IWebElement element)
+        {
+            return element.Text;
+        }
+
         public static void AssertElementPresent(this IWebElement element)
         {
             if (!IsElementPresent(element))

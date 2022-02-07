@@ -4,7 +4,7 @@ using SeleniumExtras.PageObjects;
 
 namespace ATesting.Pages
 {
-    public class EmployeePage : BasePage
+    internal class EmployeeListPage : BasePage
     {
         [FindsBy(How = How.Name, Using = "searchTerm")]
         public IWebElement txtSearch { get; set; }
