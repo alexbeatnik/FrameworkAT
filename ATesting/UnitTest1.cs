@@ -36,26 +36,26 @@ namespace ATesting
         {
         }
 
-        [Test]
-        public void Test1()
-        {
-            string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
-            ExelHelpers.PopulateCollection(filename);
-            ConfigReader.SetFrameworksSettings();
-            LogHelpers.CreateLogFile();
-            OpenBrowser(BrowserType.Firefox);
-            LogHelpers.Write("Open the browser!!!");
-            DriverContext.Browser.GoToUrl(Settings.AUT);
-            LogHelpers.Write("Navigated to the page");
-
-            CurrentPage = GetInstance<LoginPage>();
-            CurrentPage.As<LoginPage>()
-                .ClickLoginLink()
-                .CheckIfLoginExists()
-                .LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"))
-                .ClickEmployeeList()
-                .ClickButtonCreateNew();
-        }
+        // [Test]
+        // public void Test1()
+        // {
+        //     string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
+        //     ExelHelpers.PopulateCollection(filename);
+        //     ConfigReader.SetFrameworksSettings();
+        //     LogHelpers.CreateLogFile();
+        //     OpenBrowser(BrowserType.Firefox);
+        //     LogHelpers.Write("Open the browser!!!");
+        //     DriverContext.Browser.GoToUrl(Settings.AUT);
+        //     LogHelpers.Write("Navigated to the page");
+        //
+        //     CurrentPage = GetInstance<LoginPage>();
+        //     CurrentPage.As<LoginPage>()
+        //         .ClickLoginLink()
+        //         .CheckIfLoginExists()
+        //         .LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"))
+        //         .ClickEmployeeList()
+        //         .ClickButtonCreateNew();
+        // }
 
         [Test]
         public void TableOperation()
