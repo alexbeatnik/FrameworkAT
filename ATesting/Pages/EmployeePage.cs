@@ -12,10 +12,19 @@ namespace ATesting.Pages
         [FindsBy(How = How.LinkText, Using = "Create New")]
         public IWebElement buttonCreateNew { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "table")]
+        public IWebElement tblEmployeeList { get; set; }
+
+
         public CreateEmployeePage ClickButtonCreateNew()
         {
             buttonCreateNew.Click();
             return new CreateEmployeePage();
+        }
+
+        public IWebElement GetEmployeeList()
+        {
+           return tblEmployeeList;
         }
     }
 }

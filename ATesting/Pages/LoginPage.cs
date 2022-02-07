@@ -39,7 +39,7 @@ namespace ATesting.Pages
         public EmployeePage ClickEmployeeList()
         {
             lnkEmployeeList.Click();
-            return new EmployeePage();
+            return GetInstance<EmployeePage>();
         }
         public LoginPage CheckIfLoginExists()
         {

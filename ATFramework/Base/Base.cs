@@ -9,14 +9,13 @@ namespace ATFramework.Base
         public BasePage CurrentPage { get; set; }
         private IWebDriver _driver { get; set; }
 
-        protected TPage GetInstance<TPage>() where TPage : BasePage, new()
+        public TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
             TPage pageInstance = new TPage()
             {
                 _driver = DriverContext.Driver
             };
             PageFactory.InitElements(DriverContext.Driver, pageInstance);
-
             return pageInstance;
         }
 

@@ -56,5 +56,29 @@ namespace ATesting
                 .ClickEmployeeList()
                 .ClickButtonCreateNew();
         }
+
+        [Test]
+        public void TableOperation()
+        {
+            string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
+            ExelHelpers.PopulateCollection(filename);
+            ConfigReader.SetFrameworksSettings();
+            LogHelpers.CreateLogFile();
+            OpenBrowser(BrowserType.Firefox);
+            LogHelpers.Write("Open the browser!!!");
+            DriverContext.Browser.GoToUrl(Settings.AUT);
+            LogHelpers.Write("Navigated to the page");
+
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage.As<LoginPage>().ClickLoginLink();
+            CurrentPage.As<LoginPage>().LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"));
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
+
+
+            var table = CurrentPage.As<EmployeePage>().GetEmployeeList();
+            HtmlTableHelper.ReadTable(table);
+            HtmlTableHelper.PerformActionOnCell("5", "Name", "Ramesh", "Edit");
+        }
     }
 }
