@@ -8,6 +8,7 @@ namespace ATFramework.Helpers
     {
         private static string _logFileName = String.Format("{0:yyyymmddhhmmss}", DateTime.Now);
         private static StreamWriter _streamw = null;
+
         public static void CreateLogFile()
         {
             string dir = Settings.LogPath;
@@ -25,7 +26,7 @@ namespace ATFramework.Helpers
         public static void Write(string logMassage)
         {
             _streamw.Write($"{DateTime.Now.ToLongTimeString()}, {DateTime.Now.ToLongDateString()}");
-            _streamw.Write($" {logMassage}\n"); 
+            _streamw.Write($" {logMassage}\n");
             _streamw.Flush();
         }
     }

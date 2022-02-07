@@ -79,9 +79,9 @@ namespace ATFramework.Helpers
             string controlToOperate = null)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            var rowNumber = GetDynamicRowData(refColumnName, refColumnValue).
-                ToString().Replace("ATFramework.Helpers.HtmlTableHelper+<GetDynamicRowData>d__", "");
-                
+            var rowNumber = GetDynamicRowData(refColumnName, refColumnValue).ToString()
+                .Replace("ATFramework.Helpers.HtmlTableHelper+<GetDynamicRowData>d__", "");
+
             var cell = (from e in _tableDatacollections
                 where e.ColumnName == columnIndex && e.RowNumber == Int32.Parse(rowNumber)
                 select e.ColumnSpecialValues).SingleOrDefault();

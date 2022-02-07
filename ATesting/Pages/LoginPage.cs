@@ -7,7 +7,6 @@ namespace ATesting.Pages
 {
     public class LoginPage : BasePage
     {
-
         [FindsBy(How = How.Id, Using = "UserName")]
         IWebElement txtUserName { get; set; }
 

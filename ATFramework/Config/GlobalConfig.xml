@@ -1,14 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <FrameworkAT>
-	<RunSettings>
-		<AUT>http://eaapp.somee.com/</AUT>
-		<Browser>Firefox</Browser>
-		<TestType>SmokeTest</TestType>
-		<IsLog>Y</IsLog>
-		<LogPath>C:\\FrameworkAT\\</LogPath>
-		<BuildName>DemoBuild</BuildName>
-		<IsReport>N</IsReport>
-		<UserName>alexbeatnik</UserName>
-		<Technology>Selenium</Technology>
-	</RunSettings>
+    <RunSettings>
+        <AUT>http://eaapp.somee.com/</AUT>
+        <Browser>Firefox</Browser>
+        <TestType>SmokeTest</TestType>
+        <IsLog>Y</IsLog>
+        <LogPath>C:\\FrameworkAT\\</LogPath>
+        <BuildName>DemoBuild</BuildName>
+        <IsReport>N</IsReport>
+        <UserName>alexbeatnik</UserName>
+        <Technology>Selenium</Technology>
+    </RunSettings>
 </FrameworkAT>

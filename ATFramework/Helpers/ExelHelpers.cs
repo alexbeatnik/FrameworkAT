@@ -15,9 +15,9 @@ namespace ATFramework.Helpers
         public static void PopulateCollection(string fileName)
         {
             DataTable table = ExelDataTable(fileName);
-            for(int row = 1; row <= table.Rows.Count; row++)
+            for (int row = 1; row <= table.Rows.Count; row++)
             {
-                for(int col = 0; col < table.Columns.Count; col++)
+                for (int col = 0; col < table.Columns.Count; col++)
                 {
                     Datacollection datacol = new Datacollection()
                     {
@@ -54,11 +54,11 @@ namespace ATFramework.Helpers
             try
             {
                 string data = (from colData in _dataCol
-                               where colData.columnName == columnName && colData.rowNumber == rowNumber
-                               select colData.columnValue).SingleOrDefault();
+                    where colData.columnName == columnName && colData.rowNumber == rowNumber
+                    select colData.columnValue).SingleOrDefault();
                 return data.ToString();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }

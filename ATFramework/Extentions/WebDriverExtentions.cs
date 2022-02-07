@@ -29,7 +29,7 @@ namespace ATFramework.Extentions
                 }
             };
             var stopWatch = Stopwatch.StartNew();
-            while(stopWatch.ElapsedMilliseconds < timeOut)
+            while (stopWatch.ElapsedMilliseconds < timeOut)
             {
                 if (execute(obj))
                 {

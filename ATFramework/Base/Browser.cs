@@ -10,16 +10,18 @@ namespace ATFramework.Base
         {
             _driver = driver;
         }
+
         public BrowserType Type { get; set; }
+
         public void GoToUrl(string url)
         {
             DriverContext.Driver.Url = url;
         }
-
     }
+
     public enum BrowserType
     {
-        Edge, 
+        Edge,
         Firefox,
         Chrome
     }

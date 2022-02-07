@@ -27,6 +27,7 @@ namespace ATFramework.Extentions
             Actions actions = new Actions(DriverContext.Driver);
             actions.MoveToElement(element).Perform();
         }
+
         public static void SelectDropDownList(this IWebElement element, string value)
         {
             SelectElement ddl = new SelectElement(element);
@@ -41,7 +42,7 @@ namespace ATFramework.Extentions
         {
             if (!IsElementPresent(element))
             {
-                throw new Exception(string.Format("Element Not Present Exception")); 
+                throw new Exception(string.Format("Element Not Present Exception"));
             }
         }
 

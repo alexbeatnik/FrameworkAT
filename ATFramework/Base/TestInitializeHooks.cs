@@ -26,8 +26,6 @@ namespace ATFramework.Base
 
             OpenBrowser(Browser);
             LogHelpers.Write("Open the browser!!!");
-
-
         }
 
         private void OpenBrowser(BrowserType browserType = BrowserType.Chrome)

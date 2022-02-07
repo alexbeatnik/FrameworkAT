@@ -3,6 +3,7 @@ using ATFramework.Extentions;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
+
 namespace ATesting.Pages
 {
     public class HomePage : BasePage
@@ -25,8 +26,8 @@ namespace ATesting.Pages
             return GetInstance<LoginPage>();
         }
 
-      
-        internal string GetLoogedInUser()
+
+        public string GetLoogedInUser()
         {
             return lnkLoggedUser.GetLinkText();
         }

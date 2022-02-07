@@ -12,8 +12,6 @@ namespace ATesting
 {
     public class Tests : HookInitialize
     {
-        
-
         [SetUp]
         public void Setup()
         {

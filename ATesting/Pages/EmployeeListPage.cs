@@ -1,4 +1,5 @@
 ﻿using ATFramework.Base;
+using ATFramework.Extentions;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -24,7 +25,7 @@ namespace ATesting.Pages
 
         public IWebElement GetEmployeeList()
         {
-           return tblEmployeeList;
+            return tblEmployeeList;
         }
     }
 }

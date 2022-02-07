@@ -35,7 +35,7 @@ namespace ATFramework.Config
 
 
             Settings.AUT = aut.ToString();
-            Settings.IsLog = islog.ToString(); 
+            Settings.IsLog = islog.ToString();
             Settings.TestType = testtype.ToString();
             Settings.IsLog = islog.ToString();
             Settings.LogPath = logpath.ToString();
