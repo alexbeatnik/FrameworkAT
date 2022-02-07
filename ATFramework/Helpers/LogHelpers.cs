@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATFramework.Config;
+using System;
 using System.IO;
 
 namespace ATFramework.Helpers
@@ -9,7 +10,7 @@ namespace ATFramework.Helpers
         private static StreamWriter _streamw = null;
         public static void CreateLogFile()
         {
-            string dir = @"C:\FrameworkAT\";
+            string dir = Settings.LogPath;
             if (Directory.Exists(dir))
             {
                 _streamw = File.AppendText(dir + _logFileName + ".log");
