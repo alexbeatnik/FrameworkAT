@@ -15,13 +15,13 @@ namespace ATFramework.Extentions
             }, 10);
         }
 
-        public static void WaitForCondition<T>(this T obj, Func<T, bool> comdition, int timeOut)
+        public static void WaitForCondition<T>(this T obj, Func<T, bool> condition, int timeOut)
         {
             Func<T, bool> execute = (arg) =>
             {
                 try
                 {
-                    return comdition(arg);
+                    return condition(arg);
                 }
                 catch (Exception ex)
                 {
