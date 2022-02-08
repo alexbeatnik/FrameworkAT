@@ -24,8 +24,7 @@ namespace ATFramework.Config
             FileStream stream = new FileStream(strFileName, FileMode.Open, FileAccess.Read);
             XPathDocument document = new XPathDocument(stream);
             XPathNavigator navigator = document.CreateNavigator();
-
-
+            
             aut = navigator.SelectSingleNode("FrameworkAT/RunSettings/AUT");
             testtype = navigator.SelectSingleNode("FrameworkAT/RunSettings/TestType");
             buildname = navigator.SelectSingleNode("FrameworkAT/RunSettings/BuildName");
@@ -33,9 +32,7 @@ namespace ATFramework.Config
             isreport = navigator.SelectSingleNode("FrameworkAT/RunSettings/IsReport");
             logpath = navigator.SelectSingleNode("FrameworkAT/RunSettings/LogPath");
             appConnection = navigator.SelectSingleNode("FrameworkAT/RunSettings/ApplicationDb");
-
-
-
+            
             Settings.AUT = aut.ToString();
             Settings.IsLog = islog.ToString();
             Settings.TestType = testtype.ToString();

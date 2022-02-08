@@ -1,9 +1,10 @@
 ﻿Feature: Employee
 
 A short summary of the feature
-Background: 
-    Given I Delete employee 'NewUser' before I start running test
-    
+
+    Background:
+        Given I Delete employee 'NewUser' before I start running test
+
     @smoke
     Scenario: Create Employee with all details
         Given I navigate to aplication

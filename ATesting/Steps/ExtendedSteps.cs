@@ -13,8 +13,8 @@ public class ExtendedSteps : BaseStep
     public void GivenICheckAppOpened()
     {
         CurrentPage.As<HomePage>().CheckIfLoginExists();
-    }    
-    
+    }
+
     [Given(@"I Delete employee '(.*)' before I start running test")]
     public void DBDeleteEmployee(string employeeName)
     {
