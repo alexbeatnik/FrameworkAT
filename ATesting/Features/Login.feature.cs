@@ -113,14 +113,14 @@ namespace ATesting.Features
 #line 10
         testRunner.And("I click the login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "UserName",
                             "Password"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "admin",
                             "password"});
 #line 11
-        testRunner.And("I enter username and password", ((string)(null)), table4, "And ");
+        testRunner.And("I enter username and password", ((string)(null)), table5, "And ");
 #line hidden
 #line 14
         testRunner.And("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -3,9 +3,6 @@ using ATFramework.Helpers;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ATFramework.Base
 {
@@ -20,7 +17,7 @@ namespace ATFramework.Base
 
         public void InitializeSettings()
         {
-            ConfigReader.SetFrameworksSettings();
+            ConfigReader.SetFrameworksSettings("stating");
 
             LogHelpers.CreateLogFile();
 

@@ -75,10 +75,10 @@ namespace ATesting.Features
         
         public virtual void FeatureBackground()
         {
-#line 4
-#line hidden
 #line 5
-    testRunner.Given("I Delete employee \'NewUser\' before I start running test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    #line hidden
+#line 6
+        testRunner.Given("I Delete employee \'NewUser\' before I start running test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -91,7 +91,7 @@ namespace ATesting.Features
                     "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Employee with all details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+#line 9
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -111,52 +111,52 @@ namespace ATesting.Features
             else
             {
                 this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-#line 9
-        testRunner.Given("I navigate to aplication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+    this.FeatureBackground();
 #line hidden
 #line 10
-        testRunner.And("I check app opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.Given("I navigate to aplication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
+        testRunner.And("I check app opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 12
         testRunner.And("I click the login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "UserName",
                             "Password"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "admin",
                             "password"});
-#line 12
-        testRunner.And("I enter username and password", ((string)(null)), table2, "And ");
-#line hidden
-#line 15
-        testRunner.And("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+        testRunner.And("I enter username and password", ((string)(null)), table3, "And ");
 #line hidden
 #line 16
-        testRunner.And("I click the employeeList link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
+        testRunner.And("I click the employeeList link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 18
         testRunner.And("I click createNew button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Salary",
                             "DurationWorked",
                             "Grade",
                             "Email"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "NewUser",
                             "3000",
                             "20",
                             "1",
                             "newuser@ea.com"});
-#line 18
-        testRunner.And("I enter following details", ((string)(null)), table3, "And ");
+#line 19
+        testRunner.And("I enter following details", ((string)(null)), table4, "And ");
 #line hidden
-#line 21
+#line 22
         testRunner.And("I click create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
