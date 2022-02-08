@@ -38,22 +38,22 @@ namespace ATesting
         //         .ClickButtonCreateNew();
         // }
 
-        // [Test]
-        // public void TableOperation()
-        // {
-        //     string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
-        //     ExelHelpers.PopulateCollection(filename);
-        //
-        //     CurrentPage = GetInstance<LoginPage>();
-        //     CurrentPage.As<LoginPage>().ClickLoginLink();
-        //     CurrentPage.As<LoginPage>().LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"));
-        //     CurrentPage = GetInstance<LoginPage>();
-        //     CurrentPage = CurrentPage.As<LoginPage>().ClickEmployeeList();
-        //
-        //
-        //     var table = CurrentPage.As<EmployeeListPage>().GetEmployeeList();
-        //     HtmlTableHelper.ReadTable(table);
-        //     HtmlTableHelper.PerformActionOnCell("5", "Name", "Ramesh", "Edit");
-        // }
+        [Test]
+        public void TableOperation()
+        {
+            string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
+            ExelHelpers.PopulateCollection(filename);
+        
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage.As<HomePage>().ClickLoginLink();
+            CurrentPage.As<LoginPage>().LogIn(ExelHelpers.ReadData(1, "UserName"), ExelHelpers.ReadData(1, "Password"));
+            CurrentPage = GetInstance<LoginPage>();
+            CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
+        
+        
+            var table = CurrentPage.As<EmployeeListPage>().GetEmployeeList();
+            HtmlTableHelper.ReadTable(table);
+            HtmlTableHelper.PerformActionOnCell("5", "Name", "Ramesh", "Edit");
+        }
     }
 }
