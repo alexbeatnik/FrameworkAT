@@ -1,5 +1,7 @@
 using ATesting.Pages;
 using ATFramework.Base;
+using ATFramework.Config;
+using ATFramework.Helpers;
 using TechTalk.SpecFlow;
 
 namespace ATesting.Steps;
@@ -11,6 +13,13 @@ public class ExtendedSteps : BaseStep
     public void GivenICheckAppOpened()
     {
         CurrentPage.As<HomePage>().CheckIfLoginExists();
+    }    
+    
+    [Given(@"I Delete employee '(.*)' before I start running test")]
+    public void DBDeleteEmployee(string employeeName)
+    {
+        string query = $"delete FROM [EAEmployeeDB].[dbo].[Employees] where Name = '{employeeName}'";
+        Settings.ApplicationConnection.ExecuteQuery(query);
     }
 
     [Given(@"I navigate to aplication")]

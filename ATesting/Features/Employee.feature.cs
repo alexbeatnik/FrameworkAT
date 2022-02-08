@@ -73,6 +73,15 @@ namespace ATesting.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line hidden
+#line 5
+    testRunner.Given("I Delete employee \'NewUser\' before I start running test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Employee with all details")]
         [NUnit.Framework.CategoryAttribute("smoke")]
@@ -82,7 +91,7 @@ namespace ATesting.Features
                     "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Employee with all details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 8
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -102,13 +111,16 @@ namespace ATesting.Features
             else
             {
                 this.ScenarioStart();
-#line 7
-        testRunner.Given("I navigate to aplication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 8
-        testRunner.And("I check app opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 4
+this.FeatureBackground();
 #line hidden
 #line 9
+        testRunner.Given("I navigate to aplication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 10
+        testRunner.And("I check app opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
         testRunner.And("I click the login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -117,16 +129,16 @@ namespace ATesting.Features
                 table2.AddRow(new string[] {
                             "admin",
                             "password"});
-#line 10
+#line 12
         testRunner.And("I enter username and password", ((string)(null)), table2, "And ");
 #line hidden
-#line 13
+#line 15
         testRunner.And("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 16
         testRunner.And("I click the employeeList link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 17
         testRunner.And("I click createNew button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -141,10 +153,10 @@ namespace ATesting.Features
                             "20",
                             "1",
                             "newuser@ea.com"});
-#line 16
+#line 18
         testRunner.And("I enter following details", ((string)(null)), table3, "And ");
 #line hidden
-#line 19
+#line 21
         testRunner.And("I click create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

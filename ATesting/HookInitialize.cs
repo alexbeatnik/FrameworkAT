@@ -1,4 +1,6 @@
 ﻿using ATFramework.Base;
+using ATFramework.Config;
+using ATFramework.Helpers;
 using TechTalk.SpecFlow;
 
 namespace ATesting
@@ -9,6 +11,7 @@ namespace ATesting
         public HookInitialize() : base(BrowserType.Firefox)
         {
             InitializeSettings();
+            Settings.ApplicationConnection = Settings.ApplicationConnection.DbConnection(Settings.AppConnectionString);
             NavigateSite();
         }
 
