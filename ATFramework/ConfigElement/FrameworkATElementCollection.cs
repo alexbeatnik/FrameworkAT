@@ -2,7 +2,7 @@ using System.Configuration;
 
 namespace ATFramework.ConfigElement;
 
-[ConfigurationCollection(typeof(FrameworkATElement), AddItemName = "testSettings",
+[ConfigurationCollection(typeof(FrameworkATElement), AddItemName = "testSetting",
     CollectionType = ConfigurationElementCollectionType.BasicMap)]
 public class FrameworkATElementCollection : ConfigurationElementCollection
 {
