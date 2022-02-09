@@ -1,11 +1,6 @@
 ﻿using NUnit.Framework;
 using RestSharp;
-using RestSharp.Serializers;
-using System;
-using System.Collections.Generic;
-using Dynamitey.DynamicObjects;
-using RestSharp.Deserializers;
-
+using Newtonsoft.Json.Linq;
 
 namespace ATesting
 {
@@ -23,8 +18,27 @@ namespace ATesting
             var request = new RestRequest("post/{postid}", Method.GET);
             request.AddUrlSegment("{postid}", 1);
             var response = client.Execute(request);
-            var deserialize = new JsonDeserializer();
-            deserialize.Deserialize<Dictionary<string, string>>(response);
+            // var deserialize = new JsonDeserializer();
+            // var output = deserialize.Deserialize<Dictionary<string, string>>(response);
+            // var result = output["author"];
+
+            JObject obs = JObject.Parse(response.Content);
+            Assert.AreEqual(obs["author"],"alexbeatnik","Author is not correct");
+        }
+
+        [Test]
+        public void PostWithAnonymoysBody()
+        {
+            var client = new RestClient("http://localhost:3000/");
+            var request = new RestRequest("post/{postid}/profile", Method.POST);
+            request.AddBody(new {name = "Vsiliy"});
+            request.AddUrlSegment("postid", 1);
+            
+            var response = client.Execute(request);
+            
+            JObject obs = JObject.Parse(response.Content);
+            Assert.AreEqual(obs["name"],"Vsiliy","Name is not correct");
+
         }
     }
 }
