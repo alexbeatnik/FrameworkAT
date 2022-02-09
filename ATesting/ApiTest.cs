@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using ATesting.Model;
+using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 
@@ -23,7 +24,7 @@ namespace ATesting
             // var result = output["author"];
 
             JObject obs = JObject.Parse(response.Content);
-            Assert.AreEqual(obs["author"],"alexbeatnik","Author is not correct");
+            Assert.AreEqual(obs["author"], "alexbeatnik", "Author is not correct");
         }
 
         [Test]
@@ -31,14 +32,28 @@ namespace ATesting
         {
             var client = new RestClient("http://localhost:3000/");
             var request = new RestRequest("post/{postid}/profile", Method.POST);
+            request.RequestFormat = DataFormat.Json;
             request.AddBody(new {name = "Vsiliy"});
             request.AddUrlSegment("postid", 1);
-            
-            var response = client.Execute(request);
-            
-            JObject obs = JObject.Parse(response.Content);
-            Assert.AreEqual(obs["name"],"Vsiliy","Name is not correct");
 
+            var response = client.Execute(request);
+
+            JObject obs = JObject.Parse(response.Content);
+            Assert.AreEqual(obs["name"], "Vsiliy", "Name is not correct");
+        }
+
+        [Test]
+        public void PostWithTypeClassBody()
+        {
+            var client = new RestClient("http://localhost:3000/");
+            var request = new RestRequest("poss", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(new Posts() {id = "13", author = "Automation", title = "RestSharpDemo"});
+
+            var response = client.Execute(request);
+
+            JObject obs = JObject.Parse(response.Content);
+            Assert.AreEqual(obs["author"], "Automation", "Author is not correct");
         }
     }
 }
