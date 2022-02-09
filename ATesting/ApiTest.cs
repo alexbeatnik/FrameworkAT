@@ -1,10 +1,11 @@
 ﻿using NUnit.Framework;
 using RestSharp;
+using RestSharp.Serializers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dynamitey.DynamicObjects;
+using RestSharp.Deserializers;
+
 
 namespace ATesting
 {
@@ -19,12 +20,11 @@ namespace ATesting
         public void ApiTestOperation()
         {
             var client = new RestClient("http://localhost:3000/");
-            var request = new RestRequest("post/{postid}", Method.Get);
+            var request = new RestRequest("post/{postid}", Method.GET);
             request.AddUrlSegment("{postid}", 1);
-            var content = client.ExecuteGetAsync(request).Result;
-            Console.WriteLine(content); 
+            var response = client.Execute(request);
+            var deserialize = new JsonDeserializer();
+            deserialize.Deserialize<Dictionary<string, string>>(response);
         }
-
-
-        }
+    }
 }
