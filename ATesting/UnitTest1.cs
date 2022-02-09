@@ -41,7 +41,7 @@ namespace ATesting
         [Test]
         public void TableOperation()
         {
-            string filename = Environment.CurrentDirectory.ToString() + "\\Data\\login.xls";
+            string filename = Environment.CurrentDirectory + "\\Data\\login.xls";
             ExelHelpers.PopulateCollection(filename);
 
             CurrentPage = GetInstance<LoginPage>();
