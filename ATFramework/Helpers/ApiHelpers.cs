@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using RestSharp.Deserializers;
 
@@ -13,6 +14,13 @@ public static class ApiHelpers
         var JSONOBj = new JsonDeserializer().Deserialize<Dictionary<string, string>>(restResponse);
         return JSONOBj;
     }
+
+    public static string GetResponseObject(this IRestResponse response, string responseObject)
+    {
+        JObject obs = JObject.Parse(response.Content);
+        return obs[responseObject].ToString();
+    }
+
     public static async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(this RestClient client, IRestRequest request)
         where T : class, new()
     {
@@ -29,5 +37,4 @@ public static class ApiHelpers
         });
         return await taskComplitionSource.Task;
     }
-    
 }
