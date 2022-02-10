@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using ATesting.Model;
+﻿using ATesting.Model;
 using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
