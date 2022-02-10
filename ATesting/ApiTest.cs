@@ -1,7 +1,10 @@
-﻿using ATesting.Model;
+﻿using System;
+using System.Threading.Tasks;
+using ATesting.Model;
 using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using ATFramework.Helpers;
 
 namespace ATesting
 {
@@ -18,13 +21,10 @@ namespace ATesting
             var client = new RestClient("http://localhost:3000/");
             var request = new RestRequest("post/{postid}", Method.GET);
             request.AddUrlSegment("{postid}", 1);
-            var response = client.Execute(request);
-            // var deserialize = new JsonDeserializer();
-            // var output = deserialize.Deserialize<Dictionary<string, string>>(response);
-            // var result = output["author"];
+            var response = client.Execute<Posts>(request);
 
-            JObject obs = JObject.Parse(response.Content);
-            Assert.AreEqual(obs["author"], "alexbeatnik", "Author is not correct");
+
+            Assert.AreEqual(response.Data.author, "alexbeatnik", "Author is not correct");
         }
 
         [Test]
@@ -48,12 +48,23 @@ namespace ATesting
             var client = new RestClient("http://localhost:3000/");
             var request = new RestRequest("poss", Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddBody(new Posts() {id = "13", author = "Automation", title = "RestSharpDemo"});
+            request.AddBody(new Posts() {id = "14", author = "Automation", title = "RestSharpDemo"});
 
-            var response = client.Execute(request);
+            var response = client.Execute<Posts>(request);
 
-            JObject obs = JObject.Parse(response.Content);
-            Assert.AreEqual(obs["author"], "Automation", "Author is not correct");
+            Assert.AreEqual(response.Data.author, "Automation", "Author is not correct");
+        }
+
+        [Test]
+        public void PostWithAsync()
+        {
+            var client = new RestClient("http://localhost:3000/");
+            var request = new RestRequest("poss", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(new Posts() {id = "14", author = "Automation", title = "RestSharpDemo"});
+            var result = client.ExecuteAsyncRequest<Posts>(request).GetAwaiter().GetResult();
+
+            Assert.AreEqual(result.Data.author, "Automation", "Author is not correct");
         }
     }
 }
