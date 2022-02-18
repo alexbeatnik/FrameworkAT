@@ -13,15 +13,19 @@ public class LoginSteps : BaseStep
     public void GivenIEnterUsernameAndPassword(Table table)
     {
         dynamic data = table.CreateDynamicInstance();
-        CurrentPage.As<LoginPage>().LogIn(data.UserName, data.Password);
+        _parallelConfig.CurrentPage.As<LoginPage>().LogIn(data.UserName, data.Password);
     }
 
     [Then(@"I should see username with hello")]
     public void ThenIShouldSeeUsernameWithHello()
     {
-        if (CurrentPage.As<HomePage>().GetLoogedInUser().Contains("admin"))
+        if (_parallelConfig.CurrentPage.As<HomePage>().GetLoogedInUser().Contains("admin"))
             Console.WriteLine("Success login");
         else
             Console.WriteLine("Unsuccess login");
+    }
+
+    protected LoginSteps(ParallelConfig parellelConfig) : base(parellelConfig)
+    {
     }
 }

@@ -10,7 +10,7 @@ namespace ATFramework.Extentions
         {
             driver.WaitForCondition(dri =>
             {
-                string state = dri.ExecuteJs("return document.readyState").ToString();
+                string state = ((IJavaScriptExecutor)dri).ExecuteScript("return document.readyState").ToString();
                 return state == "complete";
             }, 10);
         }
@@ -36,11 +36,6 @@ namespace ATFramework.Extentions
                     break;
                 }
             }
-        }
-
-        internal static object ExecuteJs(this IWebDriver driver, string script)
-        {
-            return driver.ExecuteJs(script);
         }
     }
 }

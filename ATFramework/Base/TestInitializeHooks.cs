@@ -1,52 +1,74 @@
-﻿using ATFramework.Config;
+﻿using System;
+using ATFramework.Config;
 using ATFramework.Helpers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
+using TechTalk.SpecFlow;
 
 namespace ATFramework.Base
 {
-    public abstract class TestInitializeHooks : Base
+    public class TestInitializeHooks : Steps
     {
-        public readonly BrowserType Browser;
+        private readonly ParallelConfig _parallelConfig;
 
-        public TestInitializeHooks(BrowserType browser)
+        public TestInitializeHooks(ParallelConfig parallelConfig)
         {
-            Browser = browser;
+            _parallelConfig = parallelConfig;
         }
+
 
         public void InitializeSettings()
         {
-            ConfigReader.SetFrameworksSettings("stating");
-
-            LogHelpers.CreateLogFile();
-
-            OpenBrowser(Browser);
-            LogHelpers.Write("Open the browser!!!");
+            ConfigReader.SetFrameworksSettings();
+            // LogHelpers.CreateLogFile();
+            OpenBrowser(Settings.BrowserType);
+            // LogHelpers.Write("Initialized framework");
         }
 
+        // private void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
+        // {
+        //     switch (browserType)
+        //     {
+        //         case BrowserType.Firefox:
+        //             var firefoxCaps = new FirefoxOptions();
+        //             _parallelConfig.Driver = new RemoteWebDriver(new Uri("http://10.14.225.109:4444"), firefoxCaps);
+        //             break;
+        //         case BrowserType.Chrome:
+        //             var chromeCaps = new ChromeOptions();
+        //             _parallelConfig.Driver = new RemoteWebDriver(new Uri("http://10.14.225.109:4444"), chromeCaps);
+        //             break;
+        //         case BrowserType.Edge:
+        //             var edgeCaps = new ChromeOptions();
+        //             _parallelConfig.Driver = new RemoteWebDriver(new Uri("http://10.14.225.109:4444"), edgeCaps);
+        //             break;
+        //     }
+        // }
+        //
         private void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
         {
             switch (browserType)
             {
                 case BrowserType.Firefox:
-                    DriverContext.Driver = new FirefoxDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    var firefoxCaps = new FirefoxOptions();
+                    _parallelConfig.Driver =new FirefoxDriver();
                     break;
                 case BrowserType.Chrome:
-                    DriverContext.Driver = new ChromeDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    var chromeCaps = new ChromeOptions();
+                    _parallelConfig.Driver = new ChromeDriver();
                     break;
                 case BrowserType.Edge:
-                    DriverContext.Driver = new EdgeDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    var edgeCaps = new ChromeOptions();
+                    _parallelConfig.Driver = new EdgeDriver();
                     break;
             }
         }
 
         public virtual void NavigateSite()
         {
-            DriverContext.Browser.GoToUrl(Settings.AUT);
+           // DriverContext.Browser.GoToUrl(Settings.AUT);
             LogHelpers.Write("Navigated to the page");
         }
     }

@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.0.1" />
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     <PackageReference Include="RestSharp.CoreNet" Version="105.2.4-rc4-24214-03" />
@@ -32,12 +31,6 @@
     <Compile Update="Config\ConfigReader.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Config\GlobalConfig.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

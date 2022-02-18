@@ -5,39 +5,23 @@ namespace ATFramework.ConfigElement;
 public class FrameworkATElement : ConfigurationElement
 {
     [ConfigurationProperty("name", IsRequired = true)]
-    public string Name
-    {
-        get { return (string) this["name"]; }
-    }
+    public string Name => (string) this["name"];
 
     [ConfigurationProperty("aut", IsRequired = true)]
-    public string AUT
-    {
-        get { return (string) this["aut"]; }
-    }
+    public string AUT => (string) this["aut"];
+
     [ConfigurationProperty("browser", IsRequired = true)]
-    public string Browser
-    {
-        get { return (string) this["browser"]; }
-    }
+    public string Browser => (string) this["browser"];
+
     [ConfigurationProperty("testType", IsRequired = true)]
-    public string TestType
-    {
-        get { return (string) this["testType"]; }
-    }
+    public string TestType => (string) this["testType"];
+
     [ConfigurationProperty("isLog", IsRequired = true)]
-    public string Islog
-    {
-        get { return (string) this["isLog"]; }
-    }
+    public string Islog => (string) this["isLog"];
+
     [ConfigurationProperty("logPath", IsRequired = true)]
-    public string LogPath
-    {
-        get { return (string) this["logPath"]; }
-    }
+    public string LogPath => (string) this["logPath"];
+
     [ConfigurationProperty("appDb", IsRequired = true)]
-    public string AppDb
-    {
-        get { return (string) base["appDb"]; }
-    }
+    public string AppDb => (string) base["appDb"];
 }

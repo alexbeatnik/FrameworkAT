@@ -1,12 +1,10 @@
-﻿using SeleniumExtras.PageObjects;
-
+﻿
 namespace ATFramework.Base
 {
-    public abstract class BasePage : Base
+    public class BasePage : Base
     {
-        public BasePage()
+        protected BasePage(ParallelConfig parellelConfig) : base(parellelConfig)
         {
-            PageFactory.InitElements(DriverContext.Driver, this);
         }
     }
 }

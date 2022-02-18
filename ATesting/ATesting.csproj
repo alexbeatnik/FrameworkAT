@@ -7,10 +7,11 @@
     <IsPackable>false</IsPackable>
 
     <LangVersion>10</LangVersion>
+
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.0.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NUnit" Version="3.13.2" />
@@ -51,5 +52,6 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </SpecFlowFeatureFiles>
     </ItemGroup>
+  
 
 </Project>

@@ -4,19 +4,16 @@ namespace ATFramework.Base
 {
     public class Browser
     {
-        private readonly IWebDriver _driver;
+        private readonly DriverContext _driverContext;
 
-        public Browser(IWebDriver driver)
+        public Browser(DriverContext driver)
         {
-            _driver = driver;
+            _driverContext = driver;
         }
 
         public BrowserType Type { get; set; }
 
-        public void GoToUrl(string url)
-        {
-            DriverContext.Driver.Url = url;
-        }
+
     }
 
     public enum BrowserType

@@ -2,15 +2,21 @@
 
 namespace ATFramework.Base
 {
-    public static class DriverContext
+    public class DriverContext
     {
-        private static IWebDriver _driver;
+        public readonly ParallelConfig _parellelConfig;
 
-        public static IWebDriver Driver
+        public DriverContext(ParallelConfig parellelConfig)
         {
-            get { return _driver; }
-            set { _driver = value; }
+            _parellelConfig = parellelConfig;
         }
+
+
+        public void GoToUrl(string url)
+        {
+            _parellelConfig.Driver.Url = url;
+        }
+
 
         public static Browser Browser { get; set; }
     }

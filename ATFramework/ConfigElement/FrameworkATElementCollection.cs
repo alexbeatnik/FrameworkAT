@@ -16,8 +16,5 @@ public class FrameworkATElementCollection : ConfigurationElementCollection
         return (element as FrameworkATElement).Name;
     }
 
-    public new FrameworkATElement this[string type]
-    {
-        get { return (FrameworkATElement)base.BaseGet(type); }
-    }
+    public new FrameworkATElement this[string type] => (FrameworkATElement) base.BaseGet(type);
 }

@@ -1,6 +1,7 @@
 ﻿using ATFramework.Base;
 using ATFramework.Config;
 using ATFramework.Helpers;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace ATesting
@@ -8,17 +9,29 @@ namespace ATesting
     [Binding]
     public class HookInitialize : TestInitializeHooks
     {
-        public HookInitialize() : base(BrowserType.Firefox)
+        private readonly ParallelConfig _parallelConfig;
+        private readonly FeatureContext _featureContext;
+        private readonly ScenarioContext _scenarioContext;
+
+        public HookInitialize(ParallelConfig parallelConfig, FeatureContext featureContext, ScenarioContext scenarioContext) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+            _featureContext = featureContext;
+            _scenarioContext = scenarioContext;
+        }
+
+        [Parallelizable(ParallelScope.Fixtures)]
+        [BeforeScenario]
+        public void TestStart()
         {
             InitializeSettings();
             Settings.ApplicationConnection = Settings.ApplicationConnection.DbConnection(Settings.AppConnectionString);
-            NavigateSite();
         }
-
-        [BeforeFeature]
-        public static void TestStart()
+        
+        [AfterScenario]
+        public void TestStop()
         {
-            HookInitialize init = new HookInitialize();
+            _parallelConfig.Driver.Quit();
         }
     }
 }

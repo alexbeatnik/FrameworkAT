@@ -9,10 +9,18 @@ namespace ATesting.Steps;
 [Binding]
 public class ExtendedSteps : BaseStep
 {
+    
+    public virtual void NavigateSite()
+    {
+        _parallelConfig.Driver.Navigate().GoToUrl(Settings.AUT);
+        _parallelConfig.CurrentPage = new HomePage(_parallelConfig);
+        LogHelpers.Write("Navigated to the page");
+    }
+    
     [Given(@"I check app opened")]
     public void GivenICheckAppOpened()
     {
-        CurrentPage.As<HomePage>().CheckIfLoginExists();
+        _parallelConfig.CurrentPage.As<HomePage>().CheckIfLoginExists();
     }
 
     [Given(@"I Delete employee '(.*)' before I start running test")]
@@ -25,26 +33,30 @@ public class ExtendedSteps : BaseStep
     [Given(@"I navigate to aplication")]
     public void GivenINavigateToAplication()
     {
-        CurrentPage = GetInstance<HomePage>();
+        NavigateSite();
     }
 
     [Given(@"I click the (.*) link")]
     public void GivenIClickTheLink(string linkName)
     {
         if (linkName == "login")
-            CurrentPage = CurrentPage.As<HomePage>().ClickLoginLink();
+            _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<HomePage>().ClickLoginLink();
         else if (linkName == "employeeList")
-            CurrentPage = CurrentPage.As<HomePage>().ClickEmployeeList();
+            _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<HomePage>().ClickEmployeeList();
     }
 
     [Given(@"I click (.*) button")]
     public void GivenIClickButton(string button)
     {
         if (button == "login")
-            CurrentPage = CurrentPage.As<LoginPage>().ClickLoginButton();
+           _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<LoginPage>().ClickLoginButton();
         else if (button == "createNew")
-            CurrentPage = CurrentPage.As<EmployeeListPage>().ClickButtonCreateNew();
+            _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<EmployeeListPage>().ClickButtonCreateNew();
         else if (button == "create")
-            CurrentPage = CurrentPage.As<CreateEmployeePage>().ClickButtonCreate();
+            _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<CreateEmployeePage>().ClickButtonCreate();
+    }
+
+    protected ExtendedSteps(ParallelConfig parellelConfig) : base(parellelConfig)
+    {
     }
 }
