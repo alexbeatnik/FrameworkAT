@@ -54,7 +54,7 @@ namespace ATFramework.Helpers
             {
                 dataSet = null;
                 sqlConnection.Close();
-                LogHelpers.Write("ERROR :: " + e.Message);
+                // LogHelpers.Write("ERROR :: " + e.Message);
                 return null;
             }
             finally

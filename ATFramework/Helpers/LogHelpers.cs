@@ -14,20 +14,20 @@ namespace ATFramework.Helpers
             string dir = Settings.LogPath;
             if (Directory.Exists(dir))
             {
-                _streamw = File.AppendText(dir + _logFileName + ".log");
+                // _streamw = File.AppendText(dir + _logFileName + ".log");
             }
             else
             {
-                Directory.CreateDirectory(dir);
-                _streamw = File.AppendText(dir + _logFileName + ".log");
+                // Directory.CreateDirectory(dir);
+                // _streamw = File.AppendText(dir + _logFileName + ".log");
             }
         }
 
         public static void Write(string logMassage)
         {
-            _streamw.Write($"{DateTime.Now.ToLongTimeString()}, {DateTime.Now.ToLongDateString()}");
-            _streamw.Write($" {logMassage}\n");
-            _streamw.Flush();
+            // _streamw.Write($"{DateTime.Now.ToLongTimeString()}, {DateTime.Now.ToLongDateString()}");
+            // _streamw.Write($" {logMassage}\n");
+            // _streamw.Flush();
         }
     }
 }

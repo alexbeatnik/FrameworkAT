@@ -1,32 +1,25 @@
-﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
+﻿using System;
 using TechTalk.SpecFlow;
 
 namespace ATFramework.Base
 {
     public class Base
     {
-        public BasePage CurrentPage
+        public readonly ParallelConfig _parallelConfig;
+
+        public Base(ParallelConfig parellelConfig)
         {
-            get { return (BasePage) ScenarioContext.Current["currentPage"]; }
-            set { ScenarioContext.Current["currentPage"] = value; }
+            _parallelConfig = parellelConfig;
         }
 
-        private IWebDriver _driver { get; set; }
-
-        public TPage GetInstance<TPage>() where TPage : BasePage, new()
+        protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
-            TPage pageInstance = new TPage()
-            {
-                _driver = DriverContext.Driver
-            };
-            PageFactory.InitElements(DriverContext.Driver, pageInstance);
-            return pageInstance;
+            return (TPage) Activator.CreateInstance(typeof(TPage));
         }
 
         public TPage As<TPage>() where TPage : BasePage
         {
-            return (TPage) this;
+            return (TPage)this;
         }
     }
 }

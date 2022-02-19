@@ -12,9 +12,13 @@ namespace ATesting.Steps
         public CreateEmployeeSteps GivenIEnterFollowingDetails(Table table)
         {
             dynamic data = table.CreateDynamicInstance();
-            CurrentPage.As<CreateEmployeePage>().CreateEmployee(data.Name, data.Salary.ToString(),
+            _parallelConfig.CurrentPage.As<CreateEmployeePage>().CreateEmployee(data.Name, data.Salary.ToString(),
                 data.DurationWorked.ToString(), data.Grade.ToString(), data.Email);
             return this;
+        }
+
+        public CreateEmployeeSteps(ParallelConfig parellelConfig) : base(parellelConfig)
+        {
         }
     }
 }
